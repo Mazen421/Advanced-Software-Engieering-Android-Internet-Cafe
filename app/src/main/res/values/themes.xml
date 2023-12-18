@@ -6,4 +6,12 @@
     </style>
 
     <style name="Theme.AdvancedSoftwareEngineering" parent="Base.Theme.AdvancedSoftwareEngineering" />
+    <style name="Theme.AdvancedSoftwareEngineering.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Theme.AdvancedSoftwareEngineering.AppBarOverlay"
+        parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.AdvancedSoftwareEngineering.PopupOverlay"
+        parent="ThemeOverlay.AppCompat.Light" />
 </resources>
