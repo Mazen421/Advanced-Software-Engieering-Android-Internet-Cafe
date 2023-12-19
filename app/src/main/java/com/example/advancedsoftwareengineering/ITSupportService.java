@@ -1,12 +1,12 @@
 package com.example.advancedsoftwareengineering;
 
-import java.awt.*;
+import android.graphics.Bitmap;
 
 public class ITSupportService extends Service {
     private String supportType; //If it's WIFI, handled automatically by the system
                                 //Else, handled by the IT worker
 
-    public ITSupportService(String serviceName, double price, Image serviceImage, String supportType) {
+    public ITSupportService(String serviceName, double price, Bitmap serviceImage, String supportType) {
         super(serviceName, false, price, serviceImage);
         this.supportType = supportType;
     }

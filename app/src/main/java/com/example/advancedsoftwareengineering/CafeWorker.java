@@ -1,6 +1,6 @@
 package com.example.advancedsoftwareengineering;
 
-import java.awt.*;
+import android.graphics.Bitmap;
 
 public class CafeWorker extends Actor{
 
@@ -9,7 +9,7 @@ public class CafeWorker extends Actor{
         super(name, username, nationalId, password);
     }
 
-    public void addCafeService(String name, int price, Image image, String type){
+    public void addCafeService(String name, int price, Bitmap image, String type){
         CafeItemService cafeItemService = new CafeItemService(name, price, image, type);
         SERVER.cafeServices.add(cafeItemService);
     }

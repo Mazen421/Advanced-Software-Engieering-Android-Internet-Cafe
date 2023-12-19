@@ -1,12 +1,14 @@
 package com.example.advancedsoftwareengineering;
 
-import java.awt.*;
+import android.graphics.Bitmap;
+
+
 
 public class PCService extends Service {
 
     Machine machine;
 
-    public PCService(String serviceName, double price, Image serviceImage) {
+    public PCService(String serviceName, double price, Bitmap serviceImage) {
         super(serviceName, true, price, serviceImage);
         machine = new Machine("Playstation" , serviceName );
     }

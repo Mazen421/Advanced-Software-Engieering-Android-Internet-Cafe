@@ -8,18 +8,22 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.advancedsoftwareengineering.databinding.ActivityLoginBinding;
+
 //extends AppCompatActivity
 public class Login extends Activity {
     private View WelcomeImage;
+    private ActivityLoginBinding binding;
     private View LoginView;
     private int shortAnimationDuration;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
-        WelcomeImage = findViewById(R.id.loadingImage);
-        LoginView = findViewById(R.id.loginView);
+        binding = ActivityLoginBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+        WelcomeImage = binding.loadingImage;
+        LoginView = binding.loginView;
         shortAnimationDuration = getResources().getInteger(android.R.integer.config_shortAnimTime) * 10;
 
         //Makes the opacity 0 for the login view but keeps it visible

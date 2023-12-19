@@ -1,6 +1,8 @@
 package com.example.advancedsoftwareengineering;
 
-import java.awt.*;
+
+import android.graphics.Bitmap;
+
 
 public class ITworker extends Actor{
 
@@ -9,12 +11,14 @@ public class ITworker extends Actor{
         super(name, username, nationalId, password);
     }
 
-    public void addITService(String name, int price, Image image, String type){
+    public void addITService(String name, int price, Bitmap image, String type){
         ITSupportService it = new ITSupportService(name, price, image, type);
         if(!name.equals("Wif")){
             SERVER.ITServices.add(it);
         }
     }
+
+
 
     public void removeITService(ITSupportService service){
         SERVER.ITServices.remove(service);

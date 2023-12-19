@@ -1,12 +1,12 @@
 package com.example.advancedsoftwareengineering;
 
-import java.awt.Image;
+import android.graphics.Bitmap;
 
 public class CafeItemService extends Service {
     private String itemType;  // e.g., Snack, Drink
     private int count = 10;
 
-    public CafeItemService(String serviceName, double price, Image serviceImage, String itemType) {
+    public CafeItemService(String serviceName, double price, Bitmap serviceImage, String itemType) {
         super(serviceName, false, price, serviceImage);
         this.itemType = itemType;
     }

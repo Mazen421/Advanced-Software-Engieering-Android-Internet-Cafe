@@ -6,15 +6,27 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/profile_icon_freepik"
             android:title="@string/menu_home" />
         <item
             android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_gallery" />
+            android:icon="@drawable/coffee_cup_freepik"
+            android:title="Cafe" />
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
+            android:id="@+id/nav_services"
+            android:icon="@drawable/customer_support_icon"
+            android:title="Services" />
+        <item
+            android:id="@+id/nav_tech_support"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:icon="@drawable/gear_icon_freepik"
+            android:title="Tech Support" />
+        <item
+            android:id="@+id/nav_wifi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:icon="@drawable/wifi_icon_freepik"
+            android:title="Wifi" />
     </group>
 </menu>
