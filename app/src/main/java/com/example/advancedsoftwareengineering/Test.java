@@ -12,7 +12,7 @@ public class Test {
         root.addCreditToUser(user1, 100);
         System.out.println("-------------------------------");
         root.BlacklistUser(user1);
-        root.addMachineService("PC1", "PC", 10);
+
         user1.requestService(SERVER.PCservices.get(0));
         root.createCafeWorkerAccount("cafe1", "cafe1", "cafe1", "cafe1");
         CafeWorker cafe1 = (CafeWorker)Authenticator.authenticate("cafe1", "cafe1");
@@ -32,6 +32,7 @@ public class Test {
         root.createITWorkerAccount("it1", "it1", "it1", "it1");
         ITworker it1 = (ITworker)Authenticator.authenticate("it1", "it1");
         assert it1 != null;
+        it1.addMachineService("PC1", "PC", 10);
         it1.addITService("Monitor issue", 10, null, "TechSupport");
         user1.requestService(SERVER.ITServices.get(0));
         it1.approvePendingTransaction(SERVER.pendingTransactions.get(0));

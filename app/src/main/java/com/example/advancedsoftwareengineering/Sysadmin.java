@@ -7,36 +7,7 @@ public class Sysadmin extends Actor{
         super(name, username, nationalId, password);
     }
 
-    public void addMachineService(String machineName, String serviceType, int price){
-        if(serviceType.equals("PC")){
-            PCService pcService = new PCService(machineName, price, null);
-            SERVER.PCservices.add(pcService);
-        }
-        else if (serviceType.equals("Playstation")){
-            PlaystationService psService = new PlaystationService(machineName, price, null);
-            SERVER.PlaystationServices.add(psService);
-        }
-    }
 
-
-
-    public void removeMachineService(String machineName, String serviceType){
-        if(serviceType.equals("PC")){
-            for(PCService pcService : SERVER.PCservices){
-                if(pcService.getMachine().getName().equals(machineName)){
-                    SERVER.PCservices.remove(pcService);
-                }
-            }
-        }
-        else if (serviceType.equals("Playstation")){
-            for(PlaystationService psService : SERVER.PlaystationServices){
-                if(psService.getMachine().getName().equals(machineName)){
-                    SERVER.PlaystationServices.remove(psService);
-                }
-            }
-        }
-
-    }
 
 
 
@@ -66,13 +37,6 @@ public class Sysadmin extends Actor{
 
     }
 
-    public void createITAccount(){
-        //TODO
-    }
-
-    public void removeITAccount(){
-        //TODO
-    }
 
     public void createAdminAccount(String name, String username, String nationalId, String password){
         Sysadmin admin = new Sysadmin(name, username, nationalId, password);

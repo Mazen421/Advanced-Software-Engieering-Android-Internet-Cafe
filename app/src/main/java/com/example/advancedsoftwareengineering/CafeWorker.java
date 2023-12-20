@@ -44,10 +44,13 @@ public class CafeWorker extends Actor{
     public void rejectPendingTransaction(Transaction transaction){
         if(transaction.getService() instanceof CafeItemService){
             transaction.setRejected();
+            SERVER.pendingTransactions.remove(transaction);
+            //reimburse the user
+            transaction.getUser().increaseCredits(transaction.getService().getPrice());
+
         }
-        SERVER.pendingTransactions.remove(transaction);
-        //reimburse the user
-        transaction.getUser().increaseCredits(transaction.getService().getPrice());
+
+
     }
 
 

@@ -226,13 +226,13 @@ public class User extends Actor {
     }
 
     // Additional method to cancel a pending service request
-    public void cancelServiceRequest(Service service) {
-        // Get the transaction from the user's transaction history
-        Transaction transaction = getTransactionFromHistoryByServiceName(service.getServiceName());
+    public void cancelServiceRequest(Transaction transaction) {
 
         // Remove the transaction from the user's transaction history if it is pending
         if (transaction.getState() == Transaction.State.PENDING) {
-            removeTransactionFromHistory(transaction);
+            transaction.setRejected();
+            SERVER.pendingTransactions.remove(transaction);
+            this.increaseCredits(transaction.getService().getPrice());
         }
         else{
             System.out.println("Cannot cancel a service request that is not pending.");

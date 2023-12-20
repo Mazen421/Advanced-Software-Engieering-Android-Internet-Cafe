@@ -1,4 +1,4 @@
-package com.example.advancedsoftwareengineering.ui.gallery;
+package com.example.advancedsoftwareengineering.ui.cafe;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,22 +8,22 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
-import com.example.advancedsoftwareengineering.databinding.FragmentGalleryBinding;
+import com.example.advancedsoftwareengineering.databinding.FragmentCafeBinding;
 
-public class GalleryFragment extends Fragment {
+public class CafeFragment extends Fragment {
 
-private FragmentGalleryBinding binding;
+private FragmentCafeBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
             ViewGroup container, Bundle savedInstanceState) {
-        GalleryViewModel galleryViewModel =
-                new ViewModelProvider(this).get(GalleryViewModel.class);
+        CafeViewModel cafeViewModel =
+                new ViewModelProvider(this).get(CafeViewModel.class);
 
-    binding = FragmentGalleryBinding.inflate(inflater, container, false);
+    binding = FragmentCafeBinding.inflate(inflater, container, false);
     View root = binding.getRoot();
 
         final TextView textView = binding.textGallery;
-        galleryViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        cafeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 

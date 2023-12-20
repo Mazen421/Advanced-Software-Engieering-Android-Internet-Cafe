@@ -23,13 +23,13 @@
 
   <include layout="@layout/content_dashboard"/>
 
-  <com.google.android.material.floatingactionbutton.FloatingActionButton
-  android:id="@+id/fab"
-  android:layout_width="wrap_content"
-  android:layout_height="wrap_content"
-  android:layout_gravity="bottom|end"
-  android:layout_marginEnd="@dimen/fab_margin"
-  android:layout_marginBottom="16dp"
-  app:srcCompat="@android:drawable/ic_dialog_email" />
+    <Button
+        android:id="@+id/button11"
+        android:layout_width="67dp"
+        android:layout_height="65dp"
+        android:textSize="8sp"
+        app:icon="@drawable/menu_icon"
+        app:iconSize="24dp"
+        app:iconTint="#000000" />
 
-  </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

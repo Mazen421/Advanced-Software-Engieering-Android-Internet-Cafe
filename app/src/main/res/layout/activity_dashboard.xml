@@ -9,18 +9,36 @@
     android:fitsSystemWindows="true"
     tools:openDrawer="start">
 
+    <!-- Main content view -->
     <include
         android:id="@+id/app_bar_dashboard"
         layout="@layout/app_bar_dashboard"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <com.google.android.material.navigation.NavigationView
-        android:id="@+id/nav_view"
-        android:layout_width="wrap_content"
+    <!-- Custom drawer view (replace with your custom view) -->
+    <ScrollView
+        android:id="@+id/custom_drawer"
+        android:layout_width="300dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:fitsSystemWindows="true"
-        app:headerLayout="@layout/nav_header_dashboard"
-        app:menu="@menu/activity_main_drawer" />
+        android:background="#ffffff"
+        android:elevation="16dp"
+        android:fillViewport="true"
+        android:visibility="invisible">
+
+        <!-- Add your custom drawer content here -->
+        <ListView
+            android:id="@+id/nav_list_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@android:color/darker_gray"
+            android:dividerHeight="1dp" />
+
+    </ScrollView>
+
+
+
+    <!-- Button to toggle the custom drawer -->
+
 </androidx.drawerlayout.widget.DrawerLayout>

@@ -21,12 +21,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:icon="@drawable/gear_icon_freepik"
-            android:title="Tech Support" />
-        <item
-            android:id="@+id/nav_wifi"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:icon="@drawable/wifi_icon_freepik"
-            android:title="Wifi" />
+            android:title="Tech Support" >
+            <menu
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+                <item
+                    android:id="@+id/nav_wifi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:icon="@drawable/wifi_icon_freepik"
+                    android:title="Wifi" />
+            </menu>
+        </item>
     </group>
 </menu>
