@@ -10,26 +10,18 @@
     <com.google.android.material.appbar.AppBarLayout
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:theme="@style/Theme.AdvancedSoftwareEngineering.AppBarOverlay">
-
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width = "match_parent"
-            android:background="?attr/colorPrimary"
-              app:popupTheme="@style/Theme.AdvancedSoftwareEngineering.PopupOverlay"
-            android:layout_height = "?attr/actionBarSize" />
-
-  </com.google.android.material.appbar.AppBarLayout>
+        android:theme="@style/Theme.AdvancedSoftwareEngineering.AppBarOverlay"/>
 
   <include layout="@layout/content_dashboard"/>
 
     <Button
         android:id="@+id/button11"
-        android:layout_width="67dp"
-        android:layout_height="65dp"
+        android:layout_width="52dp"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
         android:textSize="8sp"
         app:icon="@drawable/menu_icon"
-        app:iconSize="24dp"
+        app:iconSize="20dp"
         app:iconTint="#000000" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

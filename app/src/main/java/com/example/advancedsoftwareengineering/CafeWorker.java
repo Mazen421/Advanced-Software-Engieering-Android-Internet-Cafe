@@ -2,14 +2,16 @@ package com.example.advancedsoftwareengineering;
 
 import android.graphics.Bitmap;
 
-public class CafeWorker extends Actor{
+import java.io.Serializable;
+
+public class CafeWorker extends Actor implements Serializable {
 
 
     public CafeWorker(String name, String username, String nationalId, String password) {
         super(name, username, nationalId, password);
     }
 
-    public void addCafeService(String name, int price, Bitmap image, String type){
+    public void addCafeService(String name, double price, Bitmap image, String type){
         CafeItemService cafeItemService = new CafeItemService(name, price, image, type);
         SERVER.cafeServices.add(cafeItemService);
     }

@@ -27,24 +27,32 @@ public class CafeItemService extends Service {
         this.count = count;
     }
 
-    public void incrementCount() {
-        this.count++;
+    public void incrementCount(int increment) {
+        this.count = this.count + increment;
     }
 
     public void stockUp(int count) {
         this.count += count;
     }
 
-    public void decrementCount() {
-        this.count--;
+    public void decrementCount(int decrement) {
+        this.count = this.count - decrement;
     }
 
     public boolean isAvailable() {
         return this.count > 0;
     }
 
+    public void isAvailable(boolean available) {
+        if (available) {
+            this.count = 1;
+        } else {
+            this.count = 0;
+        }
+    }
+
     public String toString() {
-        return super.toString() + "\nItem Type: " + itemType + "\nCount: " + count;
+        return this.getServiceName();
     }
 
 }

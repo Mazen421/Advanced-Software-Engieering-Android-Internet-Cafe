@@ -7,6 +7,7 @@ import android.animation.AnimatorListenerAdapter;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -60,33 +61,34 @@ public class Login extends AppCompatActivity {
 
 
         // ----------------------------- INITIALIZATION -----------------------//
-        root = new Sysadmin("root", "root", "root", "root");
-        root.createUserAccount("user1", "user1", "user1", "user1");
-        root.createAdminAccount("admin2","admin2","admin2","admin2");
-        root.createITWorkerAccount("it1","it1","it1","it1");
-        root.createCafeWorkerAccount("cafe1","cafe1","cafe1","cafe1");
 
+        Initiliazer.initilizeUsers();
+        Initiliazer.initilizeCafe(this);
+        WIFIpassword.setPassword("WifiPassword");
 
         // -----------------------------  -----------------------//
 
     }
 
     public void loginAuthentication(View view){
+        Log.d("AuthenticationClick", "Called");
         String username, password;
         username = binding.usernameTextbox.getText().toString();
         password = binding.passswordTextBox.getText().toString();
+        root = (Sysadmin) Authenticator.authenticate("root","root");
 
         actor = Authenticator.authenticate(username, password);
+        Log.d("AuthenticationClick", "Authenticated");
 
         if(actor instanceof User){
             user1 = (User)actor;
+            Log.d("AuthenticationClick", "User");
             if(user1 != null){
                 Toast.makeText(this,"Welcome "+user1.getName(),Toast.LENGTH_SHORT).show();
                 root.addCreditToUser(user1, 100);
 
                 Intent intent = new Intent(this, Dashboard.class);
-                intent.putExtra("User",user1.getName());
-                intent.putExtra("Pass",user1.getPassword());
+                intent.putExtra("Actor", actor);
 
                 startActivity(intent);
             }
@@ -94,36 +96,39 @@ public class Login extends AppCompatActivity {
                 Toast.makeText(this,"Wrong username or password",Toast.LENGTH_SHORT).show();
             }
         } else if (actor instanceof ITworker) {
+            Log.d("AuthenticationClick", "it");
             it1 = (ITworker)actor;
             if(it1 != null){
                 Toast.makeText(this,"Welcome "+it1.getName(),Toast.LENGTH_SHORT).show();
 
                 Intent intent = new Intent(this, Dashboard.class);
-
+                intent.putExtra("Actor", actor);
                 startActivity(intent);
             }
             else{
                 Toast.makeText(this,"Wrong username or password",Toast.LENGTH_SHORT).show();
             }
         } else if (actor instanceof CafeWorker) {
+            Log.d("AuthenticationClick", "cafe");
             cafe1 = (CafeWorker)actor;
             if(cafe1 != null){
                 Toast.makeText(this,"Welcome "+cafe1.getName(),Toast.LENGTH_SHORT).show();
 
                 Intent intent = new Intent(this, Dashboard.class);
-
+                intent.putExtra("Actor", actor);
                 startActivity(intent);
             }
             else{
                 Toast.makeText(this,"Wrong username or password",Toast.LENGTH_SHORT).show();
             }
         } else if (actor instanceof Sysadmin) {
+            Log.d("AuthenticationClick", "Sysadmin");
             admin1 = (Sysadmin) actor;
             if(admin1 != null){
                 Toast.makeText(this,"Welcome "+admin1.getName(),Toast.LENGTH_SHORT).show();
 
                 Intent intent = new Intent(this, Dashboard.class);
-
+                intent.putExtra("Actor", actor);
                 startActivity(intent);
             }
             else{

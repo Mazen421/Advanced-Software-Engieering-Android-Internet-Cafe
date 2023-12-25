@@ -1,7 +1,5 @@
 package com.example.advancedsoftwareengineering;
 
-import static com.example.advancedsoftwareengineering.FragmentDecider.fragmentDecider;
-
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -36,10 +34,11 @@ public class Dashboard extends AppCompatActivity {
 
     private DrawerLayout drawerLayout;
     private ScrollView customDrawer;
-    private Button toggleDrawerButton;
     private ActivityDashboardBinding binding;
-    private String actorUser;
-    private String actorPass;
+
+    private Actor actor;
+
+    TextView nameTextView, underlineTextView;
 
     boolean toggle = false;
 
@@ -56,6 +55,9 @@ public class Dashboard extends AppCompatActivity {
         setContentView(binding.getRoot());
 
 
+
+
+
         Button button = binding.appBarDashboard.button11;
         drawerLayout = binding.drawerLayout;
         customDrawer = binding.customDrawer;
@@ -66,19 +68,9 @@ public class Dashboard extends AppCompatActivity {
         View headerView = (View)getLayoutInflater().inflate(R.layout.nav_header_dashboard, null);
         listView.addHeaderView(headerView);
 
-        itemList = new ArrayList<>();
-        itemList.add(new ListItem("Home", R.drawable.profile_icon_freepik, false, false));
-        itemList.add(new ListItem("Cafe", R.drawable.coffee_cup_freepik, false, false));
-        itemList.add(new ListItem("Services", R.drawable.customer_support_icon, true, false));
-        selectedPosition = 2;
-        itemList.add(new ListItem("Transaction History", R.drawable.transaction_history_icon, false, false));
-        itemList.add(new ListItem("Time", R.drawable.time_money_icon, false, false));
-        itemList.add(new ListItem("Contact and Crediting", R.drawable.contact_icon, false, false));
 
+        initializeListView();
 
-
-
-        // Add more items as needed
 
         // Create the adapter to convert the array to views
         adapter = new CustomAdapter(this, itemList);
@@ -100,9 +92,9 @@ public class Dashboard extends AppCompatActivity {
                         adapter.notifyDataSetChanged();
                     }
                     else{
-                        if(clickedItem != null && FragmentDecider.fragmentDecider(clickedItem.getText()) != null){
+                        if(clickedItem != null && FrontEndHelper.fragmentDecider(clickedItem.getText()) != null){
                             Log.d("OnItemClickListener", "Loading fragment "+clickedItem.getText());
-                            loadFragment(FragmentDecider.fragmentDecider(clickedItem.getText()));
+                            loadFragment(FrontEndHelper.fragmentDecider(clickedItem.getText()));
                             toggleCustomDrawer();
                         }
                     }
@@ -135,9 +127,9 @@ public class Dashboard extends AppCompatActivity {
             toggle = false;
         }
         else{
-            itemList.add(pos,new ListItem("Tech Support", R.drawable.gear_icon_freepik, false, true));
+            itemList.add(pos,new ListItem("Tech Support", R.drawable.indented_gear_icon_freepik, false, true));
             itemList.add(pos + 1,new ListItem("Wi-Fi", R.drawable.indented_wifi_icon_freepik, false, true));
-            itemList.add(pos + 2,new ListItem("Reserve a Device", R.drawable.reserve_icon2, false, true));
+            itemList.add(pos + 2,new ListItem("Reserve a Device", R.drawable.indented_reserve_icon2, false, true));
             toggle = true;
         }
     }
@@ -218,8 +210,8 @@ public class Dashboard extends AppCompatActivity {
             }
 
             // Lookup view for data population
-            TextView textView = convertView.findViewById(R.id.item_list_text_view);
-            ImageView iconImageView = convertView.findViewById(R.id.icon);
+            TextView textView = convertView.findViewById(R.id.horizontal_icon_item_list_textview);
+            ImageView iconImageView = convertView.findViewById(R.id.horizontal_icon);
 
             // Populate the data into the template view using the data object
             if (item.isChild) {
@@ -248,22 +240,28 @@ public class Dashboard extends AppCompatActivity {
     public void initializeListView(){
         String actorType;
         Intent intent = getIntent();
-        actorUser = intent.getStringExtra("User");
-        actorPass = intent.getStringExtra("Pass");
-
-        Actor actor = Authenticator.authenticate(actorUser, actorPass);
+        itemList = new ArrayList<>();
+        actor = (Actor) intent.getSerializableExtra("Actor");
         if(actor instanceof User){
             User user = (User)actor;
             actorType = "User";
+            Log.d("initializeListView","actor is user");
+            loadFragment(FrontEndHelper.fragmentDecider("Home"));
         } else if (actor instanceof ITworker) {
             ITworker it1 = (ITworker)actor;
             actorType = "ITworker";
+            Log.d("initializeListView","actor is ItWorker");
+            loadFragment(FrontEndHelper.fragmentDecider("IT Service"));
         } else if (actor instanceof CafeWorker) {
             CafeWorker cafe1 = (CafeWorker)actor;
             actorType = "CafeWorker";
+            Log.d("initializeListView","actor is CafeWorker");
+            loadFragment(FrontEndHelper.fragmentDecider("Stock"));
         } else if (actor instanceof Sysadmin) {
             Sysadmin admin1 = (Sysadmin) actor;
             actorType = "Sysadmin";
+            Log.d("initializeListView","actor is Sysadmin");
+            loadFragment(FrontEndHelper.fragmentDecider("Manage Users"));
         }
         else{
             actorType = "";
@@ -278,10 +276,25 @@ public class Dashboard extends AppCompatActivity {
                 itemList.add(new ListItem("Transaction History", R.drawable.transaction_history_icon, false, false));
                 itemList.add(new ListItem("Time", R.drawable.time_money_icon, false, false));
                 itemList.add(new ListItem("Contact and Crediting", R.drawable.contact_icon, false, false));
+
                 break;
             case "ITworker":
+                itemList.add(new ListItem("IT Service", R.drawable.technical_support, false, false));
+                itemList.add(new ListItem("Machines", R.drawable.machines_icon, false, false));
+                selectedPosition = 10;
+
+                break;
             case "CafeWorker":
+                itemList.add(new ListItem("Stock", R.drawable.stock_icon, false,false));
+                itemList.add(new ListItem("Inventory", R.drawable.inventory_icon,false,false));
+                selectedPosition = 10;
+                break;
             case "Sysadmin":
+                itemList.add(new ListItem("Manage Users", R.drawable.manage_user_icon, false, false));
+                itemList.add(new ListItem("Blacklist", R.drawable.banned_icon, false, false));
+                itemList.add(new ListItem("Users Credit", R.drawable.time_money_icon, false, false));
+                selectedPosition = 10;
+                break;
             default:
         }
     }

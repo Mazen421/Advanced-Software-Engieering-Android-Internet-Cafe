@@ -1,9 +1,10 @@
 package com.example.advancedsoftwareengineering;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class User extends Actor {
+public class User extends Actor implements Serializable {
     private List<Transaction> transactionHistory;
     private Machine assignedMachine;
     private double credits;
@@ -132,7 +133,7 @@ public class User extends Actor {
             addTransactionToHistory(transaction);
             decreaseCredits(service.getPrice());
             if (service instanceof CafeItemService) {
-                ((CafeItemService) service).decrementCount();
+                ((CafeItemService) service).decrementCount(1);
             }
             if(service instanceof ITSupportService && ((ITSupportService) service).getSupportType().equals("Wifi")){
                 System.out.println(WIFIpassword.getPassword()); //change to a push notification
@@ -293,7 +294,7 @@ public class User extends Actor {
 
     //user to string
     public String toString() {
-        return "Name: " + getName() + "\nUsername: " + getUsername() + "\nNational ID: " + getNationalId() + "\nCredits: " + getCredits() + "\n";
+        return "Name: " + getName() + "\nUsername: " + getUsername() + "\nNational ID: " + getNationalId() + "\nCredits: " + getCredits() + "\nBlacklisted: " + isBlacklisted();
     }
 
 

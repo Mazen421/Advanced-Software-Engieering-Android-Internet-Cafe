@@ -24,9 +24,4 @@ public class SERVER {
     public static List<ITSupportService> ITServices = new ArrayList<>();
 
 
-
-
-
-
-
 }

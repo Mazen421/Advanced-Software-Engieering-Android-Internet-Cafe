@@ -3,15 +3,17 @@ package com.example.advancedsoftwareengineering;
 
 import android.graphics.Bitmap;
 
+import java.io.Serializable;
 
-public class ITworker extends Actor{
+
+public class ITworker extends Actor implements Serializable {
 
 
     public ITworker(String name, String username, String nationalId, String password) {
         super(name, username, nationalId, password);
     }
 
-    public void addITService(String name, int price, Bitmap image, String type){
+    public void addITService(String name, double price, Bitmap image, String type){
         ITSupportService it = new ITSupportService(name, price, image, type);
         if(!name.equals("Wif")){
             SERVER.ITServices.add(it);
@@ -45,7 +47,7 @@ public class ITworker extends Actor{
         }
 
     }
-    public void addMachineService(String machineName, String serviceType, int price){
+    public void addMachineService(String machineName, String serviceType, double price){
         if(serviceType.equals("PC")){
             PCService pcService = new PCService(machineName, price, null);
             SERVER.PCservices.add(pcService);

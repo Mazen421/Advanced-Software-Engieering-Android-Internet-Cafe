@@ -1,6 +1,8 @@
 package com.example.advancedsoftwareengineering;
 
-public abstract class Actor {
+import java.io.Serializable;
+
+public abstract class Actor implements Serializable {
     private String name;
     private String username;
     private String nationalId;

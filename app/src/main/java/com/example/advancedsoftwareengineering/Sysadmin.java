@@ -1,6 +1,8 @@
 package com.example.advancedsoftwareengineering;
 
-public class Sysadmin extends Actor{
+import java.io.Serializable;
+
+public class Sysadmin extends Actor implements Serializable {
 
 
     public Sysadmin(String name, String username, String nationalId, String password) {
