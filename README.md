@@ -7,7 +7,7 @@ This app was designed as part of a college project, it's purpose was to serve as
 
 | Name | Worked On |
 | ---- | ---- |
-| [**Ahmed Mohamed Ibrahim Mohamed Elsheikh**](https://github.com/HaoTurnip) Team Leader | Back-End (Java, Android, Data Structure, Software Engineering) |
+| [**Ahmed Mohamed Ibrahim Mohamed Elsheikh**](https://github.com/HaoTurnip) | Back-End (Java, Android, Data Structure, Software Engineering) |
 | [Mazen Ahmed Galal Selim](https://github.com/Mazen421) | Front-End (Java, Android, XML, Designing) |
 | [Saif Eldin Mohamed Hatem](https://github.com/Trimbex) | Diagrams (Software Engineering) |
 | [Basel Ashraf Fikry](https://github.com/BaselAshraf81) | Diagrams (Software Engineering) |
