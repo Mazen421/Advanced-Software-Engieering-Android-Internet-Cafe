@@ -11,7 +11,13 @@
 | [**Basel Ashraf Fikry**](https://github.com/BaselAshraf81) | Diagrams (Software Engineering) |
 | [Ahmad Sabry Issa](https://github.com/AhmadSabryIssa) | Diagrams (Software Engineering |
 
+## Back-End
 
+The back-end was developed entirely by Ahmed, it was done in Java using classes and Object Oriented Patterns to maintain the hierarchy and functionality
+
+## Front-End
+
+The front-end was developed entirely by Mazen, it was done in Android studio using XML and fragments, It utilizes features packed in Android Studio and also custom made features to fit the usage of the app
 # About
 
 This app was designed as part of a college project, it's purpose was to serve as a building block for diagrams and designs related to software engineering, Despite that the app is **functional** and can be used
