@@ -2,7 +2,7 @@
 
 # About
 
-This app was designed as part of a college project, it's purpose was to serve as a building block for diagrams and designs related to software engineering, Despite that the app is **functional** and can be used
+This app was designed as part of a college project, it's purpose was to serve as a building block for diagrams and designs related to software engineering While also providing a fully **functional** application
 # Team Members
 
 | Name | Worked On |
